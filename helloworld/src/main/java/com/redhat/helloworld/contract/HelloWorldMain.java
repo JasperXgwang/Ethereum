@@ -27,14 +27,14 @@ public class HelloWorldMain {
         Web3j web3j = Web3j.build(new HttpService());
 
         // 部署合约
-        // HelloWorldContract contract = HelloWorldContract.deploy(web3j, credentials,
-        //         Consts.GAS_PRICE, Consts.GAS_LIMIT).send();
-        // System.out.println("getContractAddress : " + contract.getContractAddress());
+        HelloWorldContract contract = HelloWorldContract.deploy(web3j, credentials,
+                Consts.GAS_PRICE, Consts.GAS_LIMIT).send();
+        System.out.println("getContractAddress : " + contract.getContractAddress());
 
         // 加载合约
-        HelloWorldContract contract = HelloWorldContract.load(Consts.HELLOWORLD_ADDR, web3j, credentials,
-                Consts.GAS_PRICE, Consts.GAS_LIMIT);
-        System.out.println("getContractAddress : " + contract.getContractAddress());
+//        HelloWorldContract contract = HelloWorldContract.load(Consts.HELLOWORLD_ADDR, web3j, credentials,
+//                Consts.GAS_PRICE, Consts.GAS_LIMIT);
+//        System.out.println("getContractAddress : " + contract.getContractAddress());
 
         ////////// 同步请求方式 //////////
         // set

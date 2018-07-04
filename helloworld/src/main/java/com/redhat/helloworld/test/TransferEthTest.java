@@ -16,10 +16,17 @@ import java.math.BigDecimal;
  */
 public class TransferEthTest {
     // 对方地址
-    private static String toAddress = "0x353c05F5b8169CE03c82c7d78c674c1429E26dAc";
+    private static String toAddress = "64745b919d9beecd546e364c510d37ab7d40cc7d";
     // 转账数量
     private static double value = 100;
 
+    /**
+     * > eth.getBalance('b690cca6f5f60e662cbaf98795811ac3f2e39fbd')
+     * 200000000000000000000
+     *
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         // defaults to http://localhost:8545/
         Web3j web3 = Web3j.build(new HttpService());
@@ -29,7 +36,7 @@ public class TransferEthTest {
 
         // Web3j web3j, Credentials credentials, String toAddress, BigDecimal value, Convert.Unit unit
         TransactionReceipt transactionReceipt = Transfer.sendFunds(web3, credentials, toAddress,
-                BigDecimal.valueOf(value), Convert.Unit.ETHER).send();
+                BigDecimal.valueOf(value), Convert.Unit.WEI).send();
         System.out.println(transactionReceipt.getTransactionHash());
     }
 }
